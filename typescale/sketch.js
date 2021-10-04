@@ -1,73 +1,100 @@
 // S P A G H E T T I
 // s p a g h e t t i
-
 // SPAGHETTI
 // spaghetti
-//
+// this is some spaghetti code!
+
 // TODO describe the y spoisiont of the above line text and the below line text...there are real words for that 
 // TODO make a shadow
-// TODO when the x dimension is less than 
+// TODO when the x dimension is less than the y flip it and reverse it 
 
+var debug = true;
+var onoff = true;
+var shadow = false;
+var horizontal = false;
 var canvasX = 1000;
 var canvasY = 1000;
+var xInc;
+var yInc
 let s1;
-
-var onoff = true;
+// type scale (radius of letter curves)
 var ts = 40;
+// spaghetti scale (width of a strand)
 var ss = 5;
-var shadow = false;
+
+
 
 function setup(){
-  angleMode(DEGREES);
   createCanvas(canvasX, canvasY);
   background(184, 46, 4);
   s1 = new Spaghetti(100, 100, ss);
 }
 
 function draw(){
-  var xInc = canvasX / 10;
-  var yInc = 1.5 * canvasY / 3;
-
-  var xSInc = canvasX / 10;
-  var ySInc = 1.5 * canvasY / 3;
-
-  shadow = true;
-  s1.drawS(xSInc * 1, ySInc - 2 * ts, ts);
-  s1.drawP(xSInc * 2, ySInc, ts);
-  s1.drawA(xSInc * 3, ySInc, ts);
-  s1.drawG(xSInc * 4, ySInc, ts);
-  s1.drawH(xSInc * 5, ySInc, ts);
-  s1.drawE(xSInc * 6, ySInc, ts);
-  s1.drawT(xSInc * 7, ySInc, ts);
-  s1.drawT(xSInc * 8, ySInc, ts);
-  s1.drawI(xSInc * 9, ySInc, ts);
-
-  shadow = false;
-  s1.drawS(xInc * 1, yInc - 2 * ts, ts);
-  s1.drawP(xInc * 2, yInc, ts);
-  s1.drawA(xInc * 3, yInc, ts);
-  s1.drawG(xInc * 4, yInc, ts);
-  s1.drawH(xInc * 5, yInc, ts);
-  s1.drawE(xInc * 6, yInc, ts);
-  s1.drawT(xInc * 7, yInc, ts);
-  s1.drawT(xInc * 8, yInc, ts);
-  s1.drawI(xInc * 9, yInc, ts);
-  
   if(onoff){
+    // resize the canvas based on mouse click
     resizeCanvas(canvasX, canvasY);
     fill(184, 46, 4);
     rect(0, 0, canvasX, canvasY);
-    ts = 40 * canvasY / canvasX;
-    ss = 0.01 * canvasY;
-    console.log("ts " + ts);
-    console.log("ss " + ss);
-    console.log("x, y  " + canvasX, canvasY);
+    // x axis is longer than y
+    // set the x and y increments
+    // set the type and spaghettic scales
+    if(canvasX >= canvasY){
+      xInc = canvasX / 10;
+      yInc = 1.5 * canvasY / 3;
+      ts = 40 * canvasY / canvasX;
+      ss = 0.01 * canvasY;
+      horizontal = true;
+    } else {
+      xInc = 1.5 * canvasX / 3;
+      yInc = canvasY / 10;
+      ts = 40 * canvasX / canvasY;
+      ss = 0.01 * canvasX;
+      horizontal = false;
+    }
+    // do some spaghetti
+    shadow = true;
+    writeSpaghetti(xInc, yInc, horizontal);
+    shadow = false;
+    writeSpaghetti(xInc, yInc, horizontal);
+    // then stop until the mouse goes
     onoff = false;
+    // debug
+    if(debug){
+      console.log("ts " + ts);
+      console.log("ss " + ss);
+      console.log("x, y  " + canvasX, canvasY);
+    }
   }
 }
 
 
+// draw all the spaghetti letters spaced out
+function writeSpaghetti(xInc, yInc, horizontal){
+  if(horizontal){
+    s1.drawS(xInc * 1, yInc - 2 * ts, ts);
+    s1.drawP(xInc * 2, yInc, ts);
+    s1.drawA(xInc * 3, yInc, ts);
+    s1.drawG(xInc * 4, yInc, ts);
+    s1.drawH(xInc * 5, yInc, ts);
+    s1.drawE(xInc * 6, yInc, ts);
+    s1.drawT(xInc * 7, yInc, ts);
+    s1.drawT(xInc * 8, yInc, ts);
+    s1.drawI(xInc * 9, yInc, ts);
+  } else {
+    s1.drawS(xInc, yInc * 1, ts);
+    s1.drawP(xInc, yInc * 2, ts);
+    s1.drawA(xInc, yInc * 3, ts);
+    s1.drawG(xInc, yInc * 4, ts);
+    s1.drawH(xInc, yInc * 5, ts);
+    s1.drawE(xInc, yInc * 6, ts);
+    s1.drawT(xInc, yInc * 7, ts);
+    s1.drawT(xInc, yInc * 8, ts);
+    s1.drawI(xInc, yInc * 9, ts); 
+  }
+}
 
+// write boobs
 function boobs(radius){
   var xO = 200;
   var yO = 400;
@@ -89,7 +116,7 @@ function boobs(radius){
   s1.drawArc(xO + 9 * radius + 2 * kern, yO + 40, 20, 1);
 }
 
-
+// spaghetti class
 function Spaghetti(x, y){
   this.x = x;
   this.y = y;
@@ -97,7 +124,7 @@ function Spaghetti(x, y){
   // this.width = width;
 }
 
-
+// draw a single ellipse
 Spaghetti.prototype.draw = function(dark){
   push();
   translate(this.x, this.y);
@@ -126,7 +153,7 @@ Spaghetti.prototype.draw = function(dark){
   pop();
 }
 
-
+// draw a straight line segment
 Spaghetti.prototype.drawSegment = function(xStart, yStart, xStop, yStop, slope, direction){
   var x = xStart;
   var y = yStart;
@@ -170,7 +197,6 @@ Spaghetti.prototype.drawSegment = function(xStart, yStart, xStop, yStop, slope, 
   }
 }
 
-
 // 90 degree segments that go in different directions
 // "bottom" of segment starts at the point specified
 // (this doesn't make much sense except for joining segments)
@@ -180,46 +206,46 @@ Spaghetti.prototype.drawSegment = function(xStart, yStart, xStop, yStop, slope, 
 // 3: up, right
 Spaghetti.prototype.drawArc = function(xAnchor, yAnchor, radius, segment){  
   var angle = 0;
-  var step =  1;
+  var step =  0.01;
   var stopAngle;
 
   switch(segment){
    case 0:
-    stopAngle = 90;
+    stopAngle = PI / 2; // 90;
     angle = 0;
     while(angle < stopAngle){
-      this.x = xAnchor + cos(angle) * radius - radius;
-      this.y = yAnchor + sin(angle) * radius;
+      this.x = xAnchor + Math.cos(angle) * radius - radius;
+      this.y = yAnchor + Math.sin(angle) * radius;
       angle += step;
       this.draw();
     }
     break;
    case 1:
-    stopAngle = 90;
-    angle = 180;
+    stopAngle = PI / 2; // 90;
+    angle = PI; //  180;
     while(angle > stopAngle){
-      this.x = xAnchor + cos(angle) * radius + radius;
-      this.y = yAnchor + sin(angle) * radius;
+      this.x = xAnchor + Math.cos(angle) * radius + radius;
+      this.y = yAnchor + Math.sin(angle) * radius;
       angle -= step;
       this.draw();
     }
     break;
    case 2:
-    stopAngle = 270;
-    angle = 360;
+    stopAngle = PI / 2 * 3 // 270;
+    angle = 2 * PI // 360;
     while(angle > stopAngle){
-      this.x = xAnchor + cos(angle) * radius - radius;
-      this.y = yAnchor + sin(angle) * radius;
+      this.x = xAnchor + Math.cos(angle) * radius - radius;
+      this.y = yAnchor + Math.sin(angle) * radius;
       angle -= step;
       this.draw();
     }
     break;
    case 3:
-    stopAngle = 270;
-    angle = 180;
+    stopAngle = PI / 2 * 3; // 270;
+    angle = PI; // 180;
     while(angle < stopAngle){
-      this.x = xAnchor + cos(angle) * radius + radius;
-      this.y = yAnchor + sin(angle) * radius;
+      this.x = xAnchor + Math.cos(angle) * radius + radius;
+      this.y = yAnchor + Math.sin(angle) * radius;
       angle += step;
       this.draw();
     }
@@ -231,17 +257,16 @@ Spaghetti.prototype.drawArc = function(xAnchor, yAnchor, radius, segment){
 // centered one radius from anchor
 Spaghetti.prototype.drawO = function(xAnchor, yAnchor, radius){
   var angle = 0;
-  var step =  0.1;
+  var step =  0.01;
   angle = 0;
-  while(angle < 360){
-    this.x = xAnchor + cos(angle) * radius;
-    this.y = yAnchor + sin(angle) * radius;
+  while(angle < 2 * PI){
+    this.x = xAnchor + Math.cos(angle) * radius;
+    this.y = yAnchor + Math.sin(angle) * radius;
     angle += step;
     this.draw();
   }
   this.draw(true);
 }
-
 
 // S
 Spaghetti.prototype.drawS = function(x, y, size){
@@ -314,6 +339,12 @@ Spaghetti.prototype.drawI = function(x, y, size){
 
 
 function mouseClicked() {
+  canvasX = mouseX;
+  canvasY = mouseY;
+  onoff = true;
+}
+
+function touchStarted() {
   canvasX = mouseX;
   canvasY = mouseY;
   onoff = true;
