@@ -23,7 +23,6 @@ var ts = 40;
 var ss = 5;
 
 
-
 function setup(){
   createCanvas(canvasX, canvasY);
   background(184, 46, 4);
@@ -42,13 +41,13 @@ function draw(){
     if(canvasX >= canvasY){
       xInc = canvasX / 10;
       yInc = 1.5 * canvasY / 3;
-      ts = 40 * canvasY / canvasX;
+      ts = 0.25 * xInc;
       ss = 0.01 * canvasY;
       horizontal = true;
     } else {
-      xInc = 1.5 * canvasX / 3;
+      xInc = 1.2 * canvasX / 3;
       yInc = canvasY / 10;
-      ts = 40 * canvasX / canvasY;
+      ts = 0.25 * yInc;
       ss = 0.01 * canvasX;
       horizontal = false;
     }
@@ -83,10 +82,10 @@ function writeSpaghetti(xInc, yInc, horizontal){
     s1.drawI(xInc * 9, yInc, ts);
   } else {
     s1.drawS(xInc, yInc * 1, ts);
-    s1.drawP(xInc, yInc * 2, ts);
-    s1.drawA(xInc, yInc * 3, ts);
+    s1.drawP(xInc, yInc * 2.2, ts);
+    s1.drawA(xInc, yInc * 3.3, ts);
     s1.drawG(xInc, yInc * 4, ts);
-    s1.drawH(xInc, yInc * 5, ts);
+    s1.drawH(xInc, yInc * 5.3, ts);
     s1.drawE(xInc, yInc * 6, ts);
     s1.drawT(xInc, yInc * 7, ts);
     s1.drawT(xInc, yInc * 8, ts);
