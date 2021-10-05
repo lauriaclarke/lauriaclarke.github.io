@@ -6,7 +6,8 @@
 
 // TODO describe the y spoisiont of the above line text and the below line text...there are real words for that 
 // TODO make a shadow
-// TODO when the x dimension is less than the y flip it and reverse it 
+// TODO when the x dimension is less than the y flip it and reverse it
+// TODO when the size of the letters exceeds the dimensions of the canvas they need to scale differently
 
 var debug = true;
 var onoff = true;
@@ -41,14 +42,22 @@ function draw(){
     if(canvasX >= canvasY){
       xInc = canvasX / 10;
       yInc = 1.5 * canvasY / 3;
-      ts = 0.25 * xInc;
       ss = 0.01 * canvasY;
+      if(ts >= yInc / 3){
+        ts = 0.25 * yInc;
+      } else {
+        ts = 0.25 * xInc;
+      }
       horizontal = true;
     } else {
       xInc = 1.2 * canvasX / 3;
       yInc = canvasY / 10;
-      ts = 0.25 * yInc;
       ss = 0.01 * canvasX;
+      if(ts >= xInc / 3){
+        ts = 0.25 * xInc;
+      } else {
+        ts = 0.25 * yInc;
+      }
       horizontal = false;
     }
     // do some spaghetti
@@ -63,6 +72,7 @@ function draw(){
       console.log("ts " + ts);
       console.log("ss " + ss);
       console.log("x, y  " + canvasX, canvasY);
+      console.log("xInc, yInc  " + xInc, yInc);
     }
   }
 }
