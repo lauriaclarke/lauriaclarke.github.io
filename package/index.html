@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>mmffvt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@900&display=swap" rel="stylesheet">  
+    <style>
+      body,
+      input,
+      button {
+        font-family: "Tienne";
+        font-weight: 100;
+      }
+      canvas {
+        border: 1px solid #aaa;
+      }
+      fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+      }
+      fieldset legend {
+        padding: 0;
+      }
+      fieldset ul {
+        padding: 0;
+      }
+      fieldset li {
+        list-style: none;
+        margin-bottom: 0.5em;
+      }
+      fieldset label {
+        display: inline-block;
+        width: 100px;
+      }
+      fieldset input {
+        border-radius: 0;
+        border: 1px solid #aaa;
+      }
+      button {
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        padding: 5px;
+        background: none;
+        margin-bottom: 1em;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #eee;
+      }
+      button:hover:active {
+        background: #cee;
+      }
+      .range-wrap {
+        position: relative;
+        margin: 0 auto 3rem;
+      }
+      .range {
+        width: 100%;
+      }
+      .bubble {
+        background: red;
+        color: white;
+        padding: 4px 12px;
+        position: absolute;
+        border-radius: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .bubble::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: red;
+        top: -1px;
+        left: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Morrill Mountain Fruit Farm</h1>
+    <div>
+      <fieldset>
+        <legend>pick your size</legend>
+        <ul>
+          <!--
+          <li>
+           <div class="range-wrap">
+             <input type="range" class="range" min="1" max="10">
+             <output class="bubble"></output>
+           </div>
+          </li>
+          -->
+          <li>
+            <label for="layers">layers</label>
+            1<input type="range" min="1" max="4" value="1" class="slider" id="layers">4
+          </li>
+          <li>
+            <label for="rows">rows</label>
+            1<input type="range" min="1" max="10" value="1" class="slider" id="rows">10
+          </li>
+          <li>
+            <label for="columns">columns</label>
+            1<input type="range" min="1" max="10" value="1" class="slider" id="columns">10
+          </li>
+          <li>
+           <label for="berrytype">flavor</label>
+           <select name="berrytype" id="berrytype">
+             <option value="Black Currant">Black Currant</option>
+             <option value="Red Currant">Red Currant</option>
+             <option value="White Currant">White Currant</option>
+             <option value="Raspberry">Raspberry</option>
+             <option value="Blueberry">Blueberry</option>
+           </select>
+          </li>
+        </ul>
+      </fieldset>
+      <button id="download">download svg</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js"></script>
+    <script src="sketch.js"></script>
+    <script src="package.js"></script>
+    <script src="label.js"></script>
+    <script src="text.js"></script>
+
+  </body>
+</html>
+
+
+          <!--
+          <li>
+            <label for="width">width</label>
+            <input
+              type="text"
+              min="1"
+              max="8"
+              name="width"
+              id="width"
+              value="6"
+            />
+          </li>
+          <li>
+            <label for="depth">depth</label>
+            <input
+              type="text"
+              min="1"
+              max="8"
+              name="depth"
+              id="depth"
+              value="2"
+            />
+          </li>
+          -->
