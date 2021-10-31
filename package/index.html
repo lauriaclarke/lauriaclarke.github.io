@@ -5,8 +5,10 @@
     <title>mmffvt</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap" rel="stylesheet">-->
-    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tienne:wght@900&display=swap" > 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css" media=”screen” />
+
     <style>
       body,
       input,
@@ -17,10 +19,18 @@
       canvas {
         border: 1px solid #aaa;
       }
+/*
+      .form {
+        margin: 10;
+        padding: 10;
+        width: 30%;
+      }
+*/
       fieldset {
-        margin: 0;
-        padding: 0;
-        border: none;
+        margin: 10;
+        padding: 10;
+        width: 100%;
+        align-self: right;
       }
       fieldset legend {
         padding: 0;
@@ -54,73 +64,122 @@
       button:hover:active {
         background: #cee;
       }
-      .range-wrap {
-        position: relative;
-        margin: 0 auto 3rem;
+
+/*
+      #image:hover {
+        background: #eee;
       }
-      .range {
-        width: 100%;
+      #image:hover:active {
+        background: #cee;
       }
-      .bubble {
-        background: red;
-        color: white;
-        padding: 4px 12px;
-        position: absolute;
-        border-radius: 4px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .bubble::after {
-        content: "";
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background: red;
-        top: -1px;
-        left: 50%;
-      }
+*/
+
+
     </style>
+
+<!-- 
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('input[type="checkbox"]').click(function() {
+                console.log("yo " + $(this).checked);
+                var inputValue = $(this).attr("value");
+                $("." + inputValue).toggle();
+            });
+        });
+    </script>
+-->
+
+
   </head>
 
   <body>
     <h1>Morrill Mountain Fruit Farm</h1>
     <div>
+
+
+
+      <div class="row disp">
       <fieldset>
-        <legend>pick your size</legend>
         <ul>
-          <!--
-          <li>
-           <div class="range-wrap">
-             <input type="range" class="range" min="1" max="10">
-             <output class="bubble"></output>
-           </div>
-          </li>
-          -->
-          <li>
-            <label for="layers">layers</label>
-            1<input type="range" min="1" max="4" value="1" class="slider" id="layers">4
-          </li>
-          <li>
-            <label for="rows">rows</label>
-            1<input type="range" min="1" max="10" value="1" class="slider" id="rows">10
-          </li>
-          <li>
-            <label for="columns">columns</label>
-            1<input type="range" min="1" max="10" value="1" class="slider" id="columns">10
-          </li>
-          <li>
-           <label for="berrytype">flavor</label>
-           <select name="berrytype" id="berrytype">
-             <option value="Black Currant">Black Currant</option>
-             <option value="Red Currant">Red Currant</option>
-             <option value="White Currant">White Currant</option>
-             <option value="Raspberry">Raspberry</option>
-             <option value="Blueberry">Blueberry</option>
-           </select>
-          </li>
+           <img src="assets/2_2.png" height="65"> 
+           <label class="radio-inline"> just for you<input type="radio" id="2x2" name="size" value="2x2"> 
+           </label>
+
+           <img src="assets/3_3.png" height="100">
+           <label class="radio-inline"> to share with a friend<input type="radio" id="3x3" name="size" value="3x3"> 
+           </label>
+         
+           <img src="assets/3_6.png" height="100">
+           <label class="radio-inline" for="3x6"> dinner party
+           <input type="radio" id="3x6" name="size" value=3x6">
+           </label>
+
+           <img src="assets/3_6_2.png" height="100">
+           <label class="radio-inline" for="3x6x2"> birthday party</label>
+           <input type="radio" id="3x6x2" name="size" value="3x6x2">
+
+           <img src="assets/case.png" height="100">
+           <label class="radio-inline" for="case"> display case (12 boxes)</label>
+           <input type="radio" id="case" name="size" value="case">
+
+           <img src="assets/double_case.png" height="100">
+           <label class="radio-inline" for="doublecase"> double display case (24 boxes)</label>
+           <input type="radio" id="doublecase" name="size" value="doublecase">
+
+            <!-- <input type="image" height="100" id="image" alt="Login" src="assets/3_3.png"> -->
         </ul>
       </fieldset>
+      </div>
+
+      <li>
+       <label for="berrytype">flavor</label>
+       <select name="berrytype" id="berrytype">
+         <option value="Black Currant">Black Currant</option>
+         <option value="Red Currant">Red Currant</option>
+         <option value="White Currant">White Currant</option>
+         <option value="Raspberry">Raspberry</option>
+         <option value="Blueberry">Blueberry</option>
+         <option value="Mixed Berry">Mixed Berry</option>
+         <option value="Mixed Currant">Mixed Currant</option>
+       </select>
+      </li>
+
+      <!-- if this box is checked allow the custom sizing -->
+      <!-- <label for="custom"></label>-->
+      <label class="radio-inline" for="doublecase">choose custom size</label>
+      <input type="radio" id="custom" name="size" value="custom">
+
+
+      <!-- <label>choose custom size<input type="checkbox" id="custom" value="custom" name="size"></label> -->
+
+      <div class="custom form">
+      <fieldset class="custom form">
+        <!-- <legend>pick your size</legend>-->
+        <ul>
+          <li>
+            <label for="layers">layers (1 - 4)</label>
+            <input type="text" id="layers" value="1">
+          </li>
+          <li>
+            <label for="rows">rows (1 - 10)</label>
+            <input type="text" id="rows" value="3">
+          </li>
+          <li>
+            <label for="columns">columns (1 - 10)</label>
+            <input type="text" id="columns" value="3">
+          </li>
+
+        </ul>
+      </fieldset>
+      </div>
+
+
+
+      <!-- buttons to refresh and download -->
+      <button id="update" onClick="refreshPage()">resize window</button>
       <button id="download">download svg</button>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js"></script>
@@ -128,32 +187,6 @@
     <script src="package.js"></script>
     <script src="label.js"></script>
     <script src="text.js"></script>
-
   </body>
 </html>
 
-
-          <!--
-          <li>
-            <label for="width">width</label>
-            <input
-              type="text"
-              min="1"
-              max="8"
-              name="width"
-              id="width"
-              value="6"
-            />
-          </li>
-          <li>
-            <label for="depth">depth</label>
-            <input
-              type="text"
-              min="1"
-              max="8"
-              name="depth"
-              id="depth"
-              value="2"
-            />
-          </li>
-          -->

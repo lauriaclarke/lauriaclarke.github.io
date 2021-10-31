@@ -1,0 +1,54 @@
+body, input, button {
+  font-family: "Tienne";
+  font-weight: 100;
+  color:"red";
+}
+canvas {
+  border: 1px solid #aaa;
+  background:"yellow";
+}
+fieldset {
+  margin: 10;
+  padding: 10;
+  border: none;
+}
+fieldset legend {
+  padding: 0;
+}
+fieldset ul {
+  padding: 0;
+}
+fieldset li {
+  list-style: none;
+  margin-bottom: 0.5em;
+}
+fieldset label {
+  display: inline-block;
+  width: 100px;
+}
+fieldset input {
+  border-radius: 0;
+  border: 1px solid #aaa;
+}
+button {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 5px;
+  background: none;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+button:hover {
+  background: #fff;
+}
+button:hover:active {
+  background: #cee;
+}
+#image:hover {
+  background: #eee;
+}
+#image:hover:active {
+  background: #cee;
+}
+
+
