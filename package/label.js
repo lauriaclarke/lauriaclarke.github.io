@@ -89,7 +89,7 @@ Label.prototype.makeLabel = function(){
   }else{
     this.makeBasket();
   }
-  // this.placeText();
+  this.placeText();
   this.g.addChild(this.text);
   this.g.addChild(this.berries);
   this.g.addChild(this.basket);
