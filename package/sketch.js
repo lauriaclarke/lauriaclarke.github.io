@@ -12,6 +12,7 @@ function setup() {
   const paper_canvas = document.createElement("canvas");
   paper_canvas.setAttribute("width", "800");
   paper_canvas.setAttribute("height", "800");
+  paper_canvas.style = "position:absolute; left: 25%;";
   document.body.append(paper_canvas);
   paper.setup(paper_canvas);
 }

@@ -7,9 +7,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tienne:wght@900&display=swap" > 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./style.css" media=”screen” />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
+      body, input, button {
+        font-family: "Tienne";
+        font-weight: 100;
+      }
+      .spacer {
+        padding-top: 80px;
+        padding-bottom: 40px
+      }
+    </style>
+
+<!--
       body,
       input,
       button {
@@ -76,7 +88,7 @@
 
 
     </style>
-
+-->
 <!-- 
    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
     <script type="text/javascript">
@@ -94,46 +106,19 @@
   </head>
 
   <body>
-    <h1>Morrill Mountain Fruit Farm</h1>
-    <div>
 
+    <div class="jumbotron text-center">
+      <h1>Morrill Mountain Fruit Farm</h1>
+    </div>
 
+    <div class="container">
 
-      <div class="row disp">
-      <fieldset>
-        <ul>
-           <img src="assets/2_2.png" height="65"> 
-           <label class="radio-inline"> just for you<input type="radio" id="2x2" name="size" value="2x2"> 
-           </label>
-
-           <img src="assets/3_3.png" height="100">
-           <label class="radio-inline"> to share with a friend<input type="radio" id="3x3" name="size" value="3x3"> 
-           </label>
-         
-           <img src="assets/3_6.png" height="100">
-           <label class="radio-inline" for="3x6"> dinner party
-           <input type="radio" id="3x6" name="size" value=3x6">
-           </label>
-
-           <img src="assets/3_6_2.png" height="100">
-           <label class="radio-inline" for="3x6x2"> birthday party</label>
-           <input type="radio" id="3x6x2" name="size" value="3x6x2">
-
-           <img src="assets/case.png" height="100">
-           <label class="radio-inline" for="case"> display case (12 boxes)</label>
-           <input type="radio" id="case" name="size" value="case">
-
-           <img src="assets/double_case.png" height="100">
-           <label class="radio-inline" for="doublecase"> double display case (24 boxes)</label>
-           <input type="radio" id="doublecase" name="size" value="doublecase">
-
-            <!-- <input type="image" height="100" id="image" alt="Login" src="assets/3_3.png"> -->
-        </ul>
-      </fieldset>
+    <div class="row">
+      <div class="col-sm-4">
+      <h4>pick your flavor and size</h4>
       </div>
-
-      <li>
-       <label for="berrytype">flavor</label>
+      <div class="col-sm-4">
+       <!-- <label for="berrytype">flavor</label><br> -->
        <select name="berrytype" id="berrytype">
          <option value="Black Currant">Black Currant</option>
          <option value="Red Currant">Red Currant</option>
@@ -143,50 +128,69 @@
          <option value="Mixed Berry">Mixed Berry</option>
          <option value="Mixed Currant">Mixed Currant</option>
        </select>
-      </li>
-
-      <!-- if this box is checked allow the custom sizing -->
-      <!-- <label for="custom"></label>-->
-      <label class="radio-inline" for="doublecase">choose custom size</label>
-      <input type="radio" id="custom" name="size" value="custom">
-
-
-      <!-- <label>choose custom size<input type="checkbox" id="custom" value="custom" name="size"></label> -->
-
-      <div class="custom form">
-      <fieldset class="custom form">
-        <!-- <legend>pick your size</legend>-->
-        <ul>
-          <li>
-            <label for="layers">layers (1 - 4)</label>
-            <input type="text" id="layers" value="1">
-          </li>
-          <li>
-            <label for="rows">rows (1 - 10)</label>
-            <input type="text" id="rows" value="3">
-          </li>
-          <li>
-            <label for="columns">columns (1 - 10)</label>
-            <input type="text" id="columns" value="3">
-          </li>
-
-        </ul>
-      </fieldset>
       </div>
-
-
-
+      <div class="col-sm-4">
       <!-- buttons to refresh and download -->
       <button id="update" onClick="refreshPage()">resize window</button>
       <button id="download">download svg</button>
-
+      </div>
     </div>
+    
+    <h1 class="space"></h1>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <img src="assets/2_2.png" height="65"> <br>
+        <input type="radio" id="2x2" name="size" value="2x2"> <label class="radio"> just for you </label>
+      </div>
+      <div class="col-sm-4">
+           <img src="assets/3_3.png" height="100"> <br>
+           <input type="radio" id="3x3" name="size" value="3x3"> <label class="radio"> to share with a friend</label>
+      </div>         
+      <div class="col-sm-4">
+           <img src="assets/3_6.png" height="100"> <br>
+           <input type="radio" id="3x6" name="size" value=3x6"> <label class="radio" for="3x6"> dinner party </label>
+      </div>
+      <div class="col-sm-4">
+           <img src="assets/3_6_2.png" height="100"> <br>
+           <input type="radio" id="3x6x2" name="size" value="3x6x2"> <label class="radio" for="3x6x2"> birthday party </label>
+      </div>
+      <div class="col-sm-4">
+           <img src="assets/case.png" height="100"><br>
+           <input type="radio" id="case" name="size" value="case"> <label class="radio" for="case"> display case (12 boxes)</label>
+      </div>
+      <div class="col-sm-4">
+           <img src="assets/double_case.png" height="100"><br>
+           <input type="radio" id="doublecase" name="size" value="doublecase"><label class="radio" for="doublecase"> double display case (24 boxes)</label> 
+      </div>
+    </div>
+ 
+
+    <h1 class="space"></h1>
+
+    <div class="row">
+      <div class="col-sm-12">
+      <!-- if this box is checked allow the custom sizing --> 
+      <input type="radio" id="custom" name="size" value="custom"> 
+      <label for="custom">choose custom size</label><br>
+      <label for="layers">layers (1 - 4)</label>
+      <input type="text" id="layers" value="1"> <br>
+      <label for="rows">rows (1 - 10)</label> 
+      <input type="text" id="rows" value="3"> <br>
+      <label for="columns">columns (1 - 10)</label> 
+      <input type="text" id="columns" value="3">
+      </div>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js"></script>
     <script src="sketch.js"></script>
     <script src="package.js"></script>
     <script src="label.js"></script>
     <script src="text.js"></script>
+   
+
   </body>
+
 </html>
 
