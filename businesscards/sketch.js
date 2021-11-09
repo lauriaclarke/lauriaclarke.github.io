@@ -8,7 +8,7 @@ const X_SCALE = 2;
 const Y_SCALE = 10;
 // square root of business cards
 const X_DIM = 3;
-const Y_DIM = 12;
+const Y_DIM = 15;
 // text scale
 const TEXT_SIZE = 10;
 // some margin for fun
@@ -57,9 +57,9 @@ BusinessCard.prototype.draw = function(){
   fill('black');
   rect(this.x, this.y, WIDTH, HEIGHT);
   // randomly place the fields around the grid
-  fill('forestgreen');
-  text("ferns for fun",  this.x + WIDTH / X_SCALE * round(random(0, X_SCALE - 1)) + MARGIN, this.y + round(random(1, Y_SCALE - 1)) * HEIGHT / Y_SCALE);
+  // fill('forestgreen');
   fill('white');
+  text("ferns for fun",  this.x + WIDTH / X_SCALE * round(random(0, X_SCALE - 1)) + MARGIN, this.y + round(random(1, Y_SCALE - 1)) * HEIGHT / Y_SCALE);
   text(this.name,  this.x + WIDTH / X_SCALE * round(random(0, X_SCALE - 1)) + MARGIN, this.y + round(random(1, Y_SCALE - 1)) * HEIGHT / Y_SCALE);
   text(this.title, this.x + WIDTH / X_SCALE * round(random(0, X_SCALE - 1)) + MARGIN, this.y + round(random(1, Y_SCALE - 1)) * HEIGHT / Y_SCALE);
   text(this.phone, this.x + WIDTH / X_SCALE * round(random(0, X_SCALE - 1)) + MARGIN, this.y + round(random(1, Y_SCALE - 1)) * HEIGHT / Y_SCALE);
