@@ -4,6 +4,7 @@ function Scene(name){
   this.introScene  = null;
   this.introDone   = false;
   this.infoDone    = true;
+  this.isDone      = false;
   this.x           = 0;
   this.y           = 0;
   this.nThings     = 11;
@@ -129,7 +130,7 @@ function sceneOne(){
   if(this.introDone == false){
     console.log("doing intro"); 
     this.introScene();
-  // }else if(this.infoDone == false){
+  //}else if(this.infoDone == false){
   //   console.log("doing info"); 
   //   infoScreen();
   }else{
@@ -238,4 +239,18 @@ function solderingironScene(){
 }
 
 
+function endScene(){
+  background(BG);
+  push();
 
+  image(starlogo, CANVASX / 5, CANVASY / 20, starlogo.width * LOGO_SCALE / 1.5, starlogo.height * LOGO_SCALE / 1.5);
+  var l = new Person(35, true, true);
+  l.currentTool = "solderingiron"; 
+  l.draw(CANVASX / 5, CANVASY / 2.8); 
+
+  text("CONGRATULATIONS! \nYou've taken everythign apart!", 10, 20);
+  text("press ENTER to play again", CANVASX - 170, CANVASY - 10);
+  // if(
+  // restart = true;
+  pop()
+}

@@ -2,6 +2,7 @@
 TODO create end state
 TODO add things the solder level
 TODO adjust the position of the soldering iron
+TODO have score be a stack of hardware 
 */
 
 // constants
@@ -21,9 +22,10 @@ let levelCount = 0;
 let scenes = [];
 // lots of images
 let thingImages = [];
-let logo, vcr;
+let starlogo, logo, vcr;
 let screwdriver, wrench, solderingiron;
 let screw, hex, solder;
+let restart = false;
 
 // load images
 function preload(){
@@ -37,6 +39,7 @@ function preload(){
   hex = loadImage("assets/hex.png");
   vcr = loadImage("assets/vcr.png");
   logo = loadImage("assets/logo.png");
+  starlogo = loadImage("assets/starlogo.png");
   screwdriver = loadImage("assets/screwdriver.png");
   wrench = loadImage("assets/wrench.png");
   solderingiron = loadImage("assets/solderingiron.png");
@@ -51,7 +54,7 @@ function setup(){
   lauria = new Person(5, true, false);
   // intro
   scenes[0] = new Scene("intro");
-  scenes[0].draw = sceneOne ;
+  scenes[0].draw = sceneOne; // endScene;
   scenes[0].introScene = splashScreen;
   scenes[0].infoDone = false;
   // one
@@ -65,7 +68,8 @@ function setup(){
   // three
   scenes[3] = new Scene("soldering iron");
   scenes[3].person = lauria;
-  scenes[3].introScene = solderingironScene;
+  scenes[3].draw = endScene;
+  // scenes[3].introScene = solderingironScene;
   // build all the scenes
   for(let i = 0; i < scenes.length; i++){
     scenes[i].build();
@@ -81,7 +85,6 @@ function draw(){
       break;
     // screwdriver
     case 1:
-      // scenes[2].person.currentTool = "solderingiron";
       scenes[2].person.currentTool = "screwdriver";
       scenes[1].draw();
       break;
@@ -107,6 +110,8 @@ function checkState(){
       console.log("new level " + levelCount);
       // reset the experience for the person in the new scene
       scenes[levelCount].person.resetEs();
+      // set the done bit for the scene
+      scenes[levelCount].isDone = true;
     // if you lose all your enthusiasm you have to go bakc a level 
     }else if(scenes[levelCount].person.enthusiasm == 0){
       levelCount--;
@@ -120,17 +125,32 @@ function keyPressed(){
   // generic counter
   if(keyCode === ENTER){
     enterCount++;
-  } 
-  // activate the first level
-  if(enterCount > 1 && levelCount <= 0){
-    levelCount = 1;
-  // special logic for the screen that asks you to increase your browser zoom
-  //}else if(scenes[levelCount].infoDone = false){
-  //  scenes[levelCount].infoDone = true;
-  }else{
-    // if we're in a scene set the introDone flag
-    scenes[levelCount].introDone = true;
+    // activate the first level
+    if(enterCount > 1 && levelCount <= 0){
+      levelCount = 1;
+    // special logic for the screen that asks you to increase your browser zoom
+    // }else if(scenes[levelCount].infoDone = false){
+    //   scenes[levelCount].infoDone = true;
+    }else{
+      // if we're in a scene set the introDone flag
+      scenes[levelCount].introDone = true;
+    }
+    // 
+    if(levelCount == 3 && scenes[levelCount].isDone == true){
+      levelCount = 0;
+      enterCount = 0;
+      resetScenes();
+    }
   }
   
-  console.log(enterCount , levelCount, scenes[levelCount].infoDone, scenes[levelCount].introDone); 
+  console.log(enterCount , levelCount, scenes[levelCount].infoDone, scenes[levelCount].introDone, restart); 
 }
+
+// reset the flags in all the scenes
+function resetScenes(){
+  for(let i = 0; i < scenes.length; i++){
+    scenes[i].isDone = false;
+    scenes[i].introDone = false;
+  }
+}
+
