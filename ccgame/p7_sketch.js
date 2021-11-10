@@ -115,6 +115,7 @@ function checkState(){
     // if you lose all your enthusiasm you have to go bakc a level 
     }else if(scenes[levelCount].person.enthusiasm == 0){
       levelCount--;
+      resetScenes();
       scenes[levelCount].person.resetEs(); 
     }
   }

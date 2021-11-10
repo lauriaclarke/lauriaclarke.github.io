@@ -37,11 +37,11 @@ const thingExps = [
   2,
   7,
   8,
-  1,
+  3,
   4,
   5,
   2,
-  10];
+  6];
 // ent points
 const thingEnts = [
   4,
