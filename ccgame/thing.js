@@ -55,6 +55,14 @@ Thing.prototype.update = function(){
   }
 }
 
+// update the activation of the thing
+Thing.prototype.reset = function(){
+  // if the activation count == number, thing is activated 
+  this.actCnt = 0;
+  this.activated = false;
+  this.completed = false;
+}
+
 // print a messgae about the item when we get close and interact with it
 Thing.prototype.printMessage = function(){
   push();

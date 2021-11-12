@@ -123,6 +123,12 @@ Scene.prototype.build = function(){
   }
 }
 
+
+Scene.prototype.resetThings = function(){
+  for(let i = 0; i < this.nThings; i++){
+    this.things[i].reset();
+  }
+}
 //----------------------------------
 // CUSTOM DRAW FUNCTIONS
 // intial scene of the game

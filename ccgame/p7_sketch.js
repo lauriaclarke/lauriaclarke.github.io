@@ -152,6 +152,7 @@ function resetScenes(){
   for(let i = 0; i < scenes.length; i++){
     scenes[i].isDone = false;
     scenes[i].introDone = false;
+    scenes[i].resetThings();
   }
 }
 
