@@ -1,11 +1,11 @@
 THICKNESS = 2.5;
-HEIGHT = 200;
+HEIGHT = 400;
 C = 2 * THICKNESS;
 
-// a brachea chunk
-module brachea(height){
+// a bronchi chunk
+module bronchi(height){
   r1 = height / 2;
-  r2 = height / 3;
+  r2 = height / 10;
   echo(r1, r2);
     
   // create the outer and inner walls
@@ -30,4 +30,4 @@ module brachea(height){
 
 
 // draw the thing
-brachea(HEIGHT);
+bronchi(HEIGHT);
