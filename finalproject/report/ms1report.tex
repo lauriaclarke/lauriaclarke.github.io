@@ -28,15 +28,19 @@ the nature of breath is...
 
 % general introduction
 
-Masahiro Mori's 1970 essay prvided the framework for describing the confusing relationship between artifically created human-like robots and, as Mori calls us, real human beings. \cite{mori} This framework of thought has gained significant traction over the last 50 plus years as developments in technology have made it possiblt to mimic the human body with increasing accuracy. This definition has also been critical in the field of computer science as we consinute ot refine mahcine learning techniques which steadily approach the capacities of the uhman brain. This framework describes the point at which an artificial automaton approaches a point of being eeriely similar to a human being, creating a feeling of discomfort via the uncertainty of whether it is "real".
 
-For the lats fifty years this framework fo thought has been critical in describing technology's relationship with humanity. 
+Using the human act of breathing as a lens, this work attempts to lay a foundation for inquiry into the relationship between what is considered to be natural and what is or has been alive. While the focus of this work is on a specifically human form of breath, respiration in broader context is omnipresent in living organisms and is therefore an apt biological process with which to address this question.  
 
-Over the last *** years however, the fields of biodesign and bioart have increasingly been asking similar questions not about tchnology and humanity, but technology and nature. In light of the increasing environmental pressures of human imposed climate change, these questions are becoming increasingly urgent. Technology is now being used t oreplicate and mimic natural systems. As Donna Haraway noted in her paper, we must thin kbeyond the human. \cite{haraway} The capacity of our technology has surpassed the instinctually introspective and can now mimic what is natural outside of ourselves. This is a critical development and harkens back to mode indigenous ways of thinking - moving and working with natural systems, rather than in opposition to. 
+% Respiration is an indicator of life at all scales - from single celled organisms to human beings. Whether involving oxygen in the conventional sense of breath, or operating at the cellular level, the process of energy production is essential to life as we know it. Taking breath, the most natural of human movements, into close consideration, this work examines the relationship between what is natural and what is, or has been, alive.
 
-If our relationship with technology is extending beyond the human so to must our language. Mori's framework is distinctly human centric. How then do we apply this thinking to non-human natural world? Is Mori's valley merely a snaller depression within a much broader valley encompassing the whole of the natural world? Do humans deserve a place in that broader cintext? To frame this question more broadly, how do we, as human beings, distinguish between what is natural and what is atrificial? How is this distinction shifting as our techological capacity for the artifical increases at great cost to the natural world. 
+% With each human breath on this planet we move deeper into the anthropocene.
 
-Using the COVID-19 pandemic as lens and reference, this work attempts to lay a foundation for deeping inquiry into the above. While its focus is on a specifically human foram of respiration, respiration in broader context is omnipresent in living organisms, thus providing a jumping off point for larger scope of inquiry into the relationship between what it means to be alive and what it means to be natural. Something about being alive. \cite{zimmer}
+With the exception of cellular respiration, respiration in breathing organisms is a visibly mechanical process. Humans have created many mechanisms to mimic various aspects of the respiratory system for purposes ranging from medical devices, underwater exploration, to speech synthesis and more. Most of these devices are higly specialized and seek to mimic partifulatr aspects of respiration such as oxygen delivery, or vocal modulation. These works rarely mimic the actual mechanics of the components of the human body responsible for resporation favoring more abstracted and efficient mechanical systems to achieve their goal. Using the freedom afforded by kinetic sculpture, this work attempts to blend a human-biomimetic approach -- highlighting the mehcnical simplicity of the human body -- with a highly technical approach which allows for precise and complex control over the resulting breath.    
+
+This work also asks us to consider the fragility of human breath in light of the COVID-19 pandemic. Seemingly overnight, much of the world became obsessed with breath as the tool of the virus spread. In the two years since, we have become incredibly attuned to the quality and sound of our own breath and what it may say about our mortality. This work seeks to probe these newfound sensitivities, forcing us to question which actions may lead breath to be easy or sharpy painful. 
+
+
+% Something about being alive. \cite{zimmer}
 
 
 \subsection{temporal relevance}
@@ -45,45 +49,37 @@ Teh COVID-19 pandemic has caused a sort of crystalization on many of the aforeme
 
 During the pandemic many people tried ot mkae ventilators at home. Segue...
 
-\subsection{mechanical relevance}
+\subsection{prior work and relevance}
 % talk about the history of breathing apparatus and note that none mimic the human body
-Mechanical ventilation has been around for a long time. Since it  seeks to provide "replacement of the respiratory muscles". \cite{ventilatorhistory} This results in apparati that resembly the respiratory system only in the sens that they cause a regutaled chnage in pressure, but have no need for recreating htep rocess by which breaht sounds are actually created. Simialrly, the cield of biomemtic robotics has little use for such inquiry - respiration is not necessary for an electronic humanoid and it is much easier to produce vocal noises in a digital manner. 
+Mechanical ventilation has been around for a long time... Since it  seeks to provide "replacement of the respiratory muscles". \cite{ventilatorhistory} This results in apparati that resembly the respiratory system only in the sens that they cause a regutaled chnage in pressure, but have no need for recreating htep rocess by which breaht sounds are actually created. Simialrly, the cield of biomemtic robotics has little use for such inquiry - respiration is not necessary for an electronic humanoid and it is much easier to produce vocal noises in a digital manner. 
 
-Two notable works in the field of kinetic sculpture provide reference, Mawa Denkye's lauching machine and another guy's breath machine thing. These two pieces provoke thought about breath, but still use simple bellow bases mechanisms to produce airflow. %\cite{deynke} \cite{otherguy}
+Two notable works in the field of kinetic sculpture provide reference, Maywa Denkye's lauching machine and another guy's breath machine thing. These two pieces provoke thought about breath, but still use simple bellow bases mechanisms to produce airflow. %\cite{deynke} \cite{otherguy} 
 
-% need to figure out how to combine the two naturally
-\section{prior work}
+Since the focus of this piece is the noise of breath 
 
-mawa deynke 
-
-breath thing from bitforms
-
-homemade ventilators
 
 
 \section{implementation}
 
-broken down into two steps; thinking and making
-
 \subsection{system breakdown}
 
-the respiratory system is complex, so I made is simpler
+While the avian respiratory system is, in fact, more complex, the human respiratory system is a very complicated biological system. \cite{breathcomplexity} To simplify this system for translation to a constructable mechanical structure, I broke it down into three main sub-systems. Each sub-system exists solely for the purpose of generating breath noises and not for the actual exchnage of oxygen as would normally occur during respiration.  
 
-\subsubsection{actuation}
+\subsubsection{Actuation}
 
-how air is moved through the respiratory system
+Actuation is the system which causes air to move through the respiratory system. In our own bodies this is acieved by the movemne of the diaphgragm. In ventilators this is ofent acieved by a pump or bellows.
 
-\subsubsection{storage}
+\subsubsection{Storage}
 
-how air is stored in the respiraatory system
+Storage describes the way air is stored and contained during the act of breath. This is done by the lungs and is only necessary for the transfer of oxygen to the blood. While the lungs are arguably the most critical part of the respiratory system, they are the most difficult to simulate with accuracy and have relatively little bearing on the sound of breath in this context. 
 
-\subsubsection{modulation}
+\subsubsection{Modulation}
 
-how the sound of breath is created
+Modulation is the way the sound of breath is shaped as it leaves the body. This is acheived by the bronchial tree, trachea, larynx, and mouth. After actuation has been achieved, simulation of this system ist he most relevant and interesting part of this.   
 
 \subsection{making}
 
-So far a few different protptypes ahve been attempted. Focusing on the two main areas of inquiry, there have been auditory prototypes, exploring the effect os disembodied breath noises, as well as machnical prototypes, exploring ways to achieve a physiologically accurate breahting mechanism. 
+So far a few different protptypes ahve been attempted. Focusing on the two main areas of inquiry, there have been auditory prototypes -- exploring the effect os disembodied breath noises -- as well as machnical prototypes -- exploring ways to achieve a physiologically accurate breahting mechanism. 
 
 \subsubsection{auditory prototypes}
 
@@ -111,6 +107,9 @@ the boris vian reference
 
 
 \section{conclusion}
+
+The complexity of the human respiratory system lies not in its gross mechanics, but in the materials and molecular mechanics that allow for the transfer of oxyneg to the blood. The goal of this work was to isolate the mechanical components which form the noise created by breathing.  
+
 
 talk about the big distinction of artificial and natural
 
@@ -141,3 +140,14 @@ Lauria Clarke is an engineer and artist living in New York. She completed an MS 
 
 
 \end{document}
+
+
+% Masahiro Mori's 1970 essay prvided the framework for describing the confusing relationship between artifically created human-like robots and, as Mori calls us, real human beings. \cite{mori} This framework of thought has gained significant traction over the last 50 plus years as developments in technology have made it possiblt to mimic the human body with increasing accuracy. This definition has also been critical in the field of computer science as we consinute ot refine mahcine learning techniques which steadily approach the capacities of the uhman brain. This framework describes the point at which an artificial automaton approaches a point of being eeriely similar to a human being, creating a feeling of discomfort via the uncertainty of whether it is "real".
+
+% For the lats fifty years this framework fo thought has been critical in describing technology's relationship with humanity. 
+
+% Over the last *** years however, the fields of biodesign and bioart have increasingly been asking similar questions not about tchnology and humanity, but technology and nature. In light of the increasing environmental pressures of human imposed climate change, these questions are becoming increasingly urgent. Technology is now being used t oreplicate and mimic natural systems. As Donna Haraway noted in her paper, we must thin kbeyond the human. \cite{haraway} The capacity of our technology has surpassed the instinctually introspective and can now mimic what is natural outside of ourselves. This is a critical development and harkens back to mode indigenous ways of thinking - moving and working with natural systems, rather than in opposition to. 
+
+% If our relationship with technology is extending beyond the human so to must our language. Mori's framework is distinctly human centric. How then do we apply this thinking to non-human natural world? Is Mori's valley merely a snaller depression within a much broader valley encompassing the whole of the natural world? Do humans deserve a place in that broader cintext? To frame this question more broadly, how do we, as human beings, distinguish between what is natural and what is atrificial? How is this distinction shifting as our techological capacity for the artifical increases at great cost to the natural world. 
+
+%While its focus is on a specifically human foram of respiration, respiration in broader context is omnipresent in living organisms, thus providing a jumping off point for larger scope of inquiry into the relationship between what it means to be alive and what it means to be natural. Something about being alive. \cite{zimmer}
