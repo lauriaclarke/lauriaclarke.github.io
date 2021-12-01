@@ -1,8 +1,44 @@
 \begin{thebibliography}{1}
 
-\bibitem{mori}
-Masahiro Mori, Karl MacDorman, and Norri Kageki.
-\newblock The uncanny valley [from the field].
-\newblock {\em IEEE Robotics and Automation Magazine}, 19:98--100, 06 2012.
+\bibitem{denki}
+Maywa Denki.
+\newblock Wahha go go, Aug 2009.
+
+\bibitem{haraway}
+Donna Haraway.
+\newblock Anthropocene, capitalocene, plantationocene, chthulucene: Making kin.
+\newblock {\em Environmental Humanities}, 6:159--165, 05 2015.
+
+\bibitem{lozanohemmer}
+Rafael Lozano-Hemmer.
+\newblock Vicious circular breathing, 2013.
+
+\bibitem{gasexchangers}
+J.~N. Maina.
+\newblock Structure, function and evolution of the gas exchangers: comparative
+  perspectives.
+\newblock {\em Journal of anatomy}, 201(4):281--304, Oct 2002.
+\newblock PMC1570919[pmcid].
+
+\bibitem{ventilatorhistory}
+Arthur~S. Slutsky.
+\newblock History of mechanical ventilation. from vesalius to
+  ventilator-induced lung injury.
+\newblock {\em American Journal of Respiratory and Critical Care Medicine},
+  191(10):1106--1115, 2015.
+\newblock PMID: 25844759.
+
+\bibitem{smith}
+Nancy Smith, Shaowen Bardzell, and Jeffrey Bardzell.
+\newblock Designing for cohabitation: Naturecultures, hybrids, and decentering
+  the human in design.
+\newblock In {\em Proceedings of the 2017 CHI Conference on Human Factors in
+  Computing Systems}, CHI '17, pages 1714--1725, New York, NY, USA, 2017.
+  Association for Computing Machinery.
+
+\bibitem{zimmer}
+Carl Zimmer.
+\newblock {\em Life's Edge: The Search for What it Means to be Alive}.
+\newblock Penguin, March 2021.
 
 \end{thebibliography}
