@@ -1,26 +1,27 @@
+/*
+
+STEPS TO CONNECT TO ARDUINO
+
+1. find correct serial port
+
+2. start python server in this directory on port 8080
+   > python3 -m http.server 8080
+
+3. start the p5 serial server
+   > p5serial
+   (should say that it's running)
+
+*/
+
 const CANVASX = 500;
 const CANVASY = 500;
 
-const INHALEPAUSE = 3000;
-const EXHALEPAUSE = 3000;
-
-const INHALEMID_START = 0.12;
-const INHALEMID_STOP  = 0.16;
-const INHALEMID_DURATION  = INHALEMID_STOP - INHALEMID_START;
-
-const EXHALEMID_START = 0.177
-const EXHALEMID_STOP  = 0.25
-const EXHALEMID_DURATION  = EXHALEMID_STOP - EXHALEMID_START;
+var serial;
+// var portName = '/dev/ttyUSB0'; 
+var portName = '/dev/ttyACM0'; 
 
 let inhale;
 let exhale;
-
-let inhale_start;
-let inhale_mid;
-let inhale_stop;
-let exhale_start;
-let exhale_mid;
-let exhale_stop;
 
 var inhalePause; 
 var exhalePause; 
@@ -32,11 +33,13 @@ var exhaleVolume;
 var state = 0;
 var start = false;
 var manual = true;
+var sensor = false;
 
 var timeA = 0;
 var timeB = 0;
 
-var loopCount = 0;
+var actValue;
+
 
 function preload(){
   inhale = loadSound("inhale.mp3");
@@ -53,115 +56,85 @@ function preload(){
 }                          
 
 function setup() {
-  createCanvas(CANVASX, CANVASY);
-  // the play button
-  play = createButton("start");
-  play.position(width / 2 - 50, height - 50);
-  play.mousePressed(buttonPlay);
+  createCanvas(windowWidth, windowHeight);
 
-  // the control button
-  manualCtrl = createButton("auto");
-  manualCtrl.position(width / 2 + 50, height - 50);
-  manualCtrl.mousePressed(buttonManual);
+  // create the buttons and sliders
+  createControls();
 
-  // inhale volume slider
-  sliderInhaleVolume = createSlider(0, 1, 0.5, 0.01);
-  sliderInhaleVolume.position(150, 10);
-  sliderInhaleVolume.style('width', '200px');
-  // exhale volume slider
-  sliderExhaleVolume = createSlider(0, 1, 0.5, 0.01);
-  sliderExhaleVolume.position(150, 30);
-  sliderExhaleVolume.style('width', '200px');
-
-  // inhale pause slider
-  sliderInhalePause = createSlider(0, 5000, 2500, 100);
-  sliderInhalePause.position(150, 60);
-  sliderInhalePause.style('width', '200px');
-  // exhale pause slider
-  sliderExhalePause = createSlider(0, 5000, 2500, 100);
-  sliderExhalePause.position(150, 80);
-  sliderExhalePause.style('width', '200px');
-
-  // inhale speed slider
-  sliderInhaleRate = createSlider(0.8, 1.2, 1, 0.01);
-  sliderInhaleRate.position(150, 120);
-  sliderInhaleRate.style('width', '200px');
-  // exhale speed slider
-  sliderExhaleRate = createSlider(0.8, 1.2, 1, 0.01);
-  sliderExhaleRate.position(150, 140);
-  sliderExhaleRate.style('width', '200px');
-
-  // single slider
-  sliderSingle = createSlider(0, 1, 0.5, 0.1);
-  sliderSingle.position(150, 280);
-  sliderSingle.style('width', '200px');
-  
-
+  setupSerial();
+   
   console.log("inhale " + inhale.duration());
   console.log("exhale " + exhale.duration());
 }
 
-// 
+// do the things!
 function draw() {
   background(255, 60, 80);
 
-  if(start && manual){
-    breathe(sliderInhalePause.value(), sliderExhalePause.value(), 
-            sliderInhaleRate.value(), sliderExhaleRate.value(),
-            sliderInhaleVolume.value(), sliderExhaleVolume.value());
-  }else if(start && !manual){
-    // console.log(random() < 0.01 - sliderSingle.value() / 100);
-    // add some randomization to the inhale and exhale cadence based on the slider
-    // inhale cadence
-    if(random() < 0.015 - sliderSingle.value() / 100){
-      inhalePause = 0;
+  if(start){
+    if(manual && !sensor){
+      breathe(sliderInhalePause.value(), sliderExhalePause.value(), 
+              sliderInhaleRate.value(), sliderExhaleRate.value(),
+              sliderInhaleVolume.value(), sliderExhaleVolume.value());
+    }else if(!manual && !sensor){
+      randomizeBreath(sliderSingle.value());
+      breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume, exhaleVolume);
+    }else if(manual && sensor){
+      console.log(actValue);
+      randomizeBreath(actValue);
+      breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume, exhaleVolume);
     }else{
-      inhalePause = sliderSingle.value() * 1000;
+      fill('black');
+      text("PLEASE CHECK YOUR CONTROL SETTINGS!", width / 2, height / 2);
+      console.log("manual " + manual + "  sensor " + sensor);
     }
-    // exhale cadence
-    if(random() < 0.015 - sliderSingle.value() / 100){
-      exhalePause = 0;
-    }else{
-      exhalePause = sliderSingle.value() * 1000;
-    }
-
-
-    // inhale volume
-    if(random() < 0.015 - sliderSingle.value() / 100){
-      inhaleVolume = random(0.3, 1);
-    }else{
-      inhaleVolume = 1 - sliderSingle.value() + 0.3;
-    }
-    // exhale volume
-    if(random() < 0.015 - sliderSingle.value() / 100){
-      exhaleVolume = random(0.2, 1);
-    }else{
-      exhaleVolume = 1 - sliderSingle.value() + 0.2;
-    }
-
-
-    // inhale volume
-    if(random() < 0.015 - sliderSingle.value() / 100){
-      inhaleRate = random(0.8, 1.2);
-    }else{
-      inhaleRate = 1;
-    }
-    // exhale volume
-    if(random() < 0.015 - sliderSingle.value() / 100){
-      exhaleRate = random(0.8, 1.2);
-    }else{
-      exhaleRate = 1;
-    }
-
-
-    // inhaleRate  = 1; // sliderSingle.value() * 100;
-    // exhaleRate  = 1; // sliderSingle.value() * 100;
-    // inhaleVolume = 0.5; //sliderSingle.value() * 100;
-    // exhaleVolume = 0.5; //sliderSingle.value() * 100;
-    breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume, exhaleVolume);
   }
 
   drawText();
+}
+
+
+// add some randomization to the cadence, volume and playback rate based on the slider
+// takes a value between 0 and 1 
+function randomizeBreath(inputValue){
+  // inhale cadence
+  if(random() < 0.015 - inputValue / 100){
+    inhalePause = 0;
+  }else{
+    inhalePause = inputValue * 1000;
+  }
+  // exhale cadence
+  if(random() < 0.015 - inputValue / 100){
+    exhalePause = 0;
+  }else{
+    exhalePause = inputValue * 1000;
+  }
+
+  // inhale volume
+  if(random() < 0.015 - inputValue / 100){
+    inhaleVolume = random(0.3, 1);
+  }else{
+    inhaleVolume = 1 - inputValue + 0.3;
+  }
+  // exhale volume
+  if(random() < 0.015 - inputValue / 100){
+    exhaleVolume = random(0.2, 1);
+  }else{
+    exhaleVolume = 1 - inputValue + 0.2;
+  }
+
+  // inhale rate
+  if(random() < 0.015 - inputValue / 100){
+    inhaleRate = random(0.8, 1.2);
+  }else{
+    inhaleRate = 1;
+  }
+  // exhale rate
+  if(random() < 0.015 - inputValue / 100){
+    exhaleRate = random(0.8, 1.2);
+  }else{
+    exhaleRate = 1;
+  }
 }
 
 // breathing based on manual sliders
@@ -250,38 +223,107 @@ function buttonManual(){
   }
 }
 
+// change from manual control to use the sensor
+function buttonSensor(){
+  if(sensor == false){
+    sensor = true;
+    sensorCtrl.html("sensor");
+  }else{
+    sensor = false;
+    sensorCtrl.html("manual");
+  }
+}
+
 // text for sliders
 function drawText(){
   fill('black');
   text("volume sliders", 50, 30);
   text("pause sliders", 50, 80);
   text("rate sliders", 50, 140);
-  text("single sliders", 50, 300);
+  text("single sliders", 50, 250);
 }
 
-/*
-  rectMode(CENTER);
-  createCanvas(CANVASX, CANVASY);
-  capture = createCapture(VIDEO);
-  capture.size(CANVASX / SCALE, CANVASY / SCALE);
-  // get the microphone input
-  mic = new p5.AudioIn();
-  mic.start();
-  // instantiate an fft of the microphone
-  fft = new p5.FFT();
-  fft.setInput(mic);
-  // hide the mini image
-  capture.hide();
+// create buttons a sliders for control
+function createControls(){
+  // the play button
+  play = createButton("start");
+  play.position(width / 2 - 60, height - 50);
+  play.mousePressed(buttonPlay);
 
-//  if (!inhale.isPlaying() || !exhale.isPlaying()) {
-//    inhale.loop();
-//    exhale.loop();
-//    play.html("stop");
-//  } else {
-//    inhale.pause();
-//    exhale.pause();
-//    play.html("start");
-//  }
+  // the control button
+  manualCtrl = createButton("auto");
+  manualCtrl.position(width / 2, height - 50);
+  manualCtrl.mousePressed(buttonManual);
 
-*/
+  // the sensor control button
+  sensorCtrl = createButton("sensor");
+  sensorCtrl.position(width / 2 + 60, height - 50);
+  sensorCtrl.mousePressed(buttonSensor);
+
+  // inhale volume slider
+  sliderInhaleVolume = createSlider(0, 1, 0.5, 0.01);
+  sliderInhaleVolume.position(150, 10);
+  sliderInhaleVolume.style('width', '200px');
+  // exhale volume slider
+  sliderExhaleVolume = createSlider(0, 1, 0.5, 0.01);
+  sliderExhaleVolume.position(150, 30);
+  sliderExhaleVolume.style('width', '200px');
+
+  // inhale pause slider
+  sliderInhalePause = createSlider(0, 5000, 2500, 100);
+  sliderInhalePause.position(150, 60);
+  sliderInhalePause.style('width', '200px');
+  // exhale pause slider
+  sliderExhalePause = createSlider(0, 5000, 2500, 100);
+  sliderExhalePause.position(150, 80);
+  sliderExhalePause.style('width', '200px');
+
+  // inhale speed slider
+  sliderInhaleRate = createSlider(0.8, 1.2, 1, 0.01);
+  sliderInhaleRate.position(150, 120);
+  sliderInhaleRate.style('width', '200px');
+  // exhale speed slider
+  sliderExhaleRate = createSlider(0.8, 1.2, 1, 0.01);
+  sliderExhaleRate.position(150, 140);
+  sliderExhaleRate.style('width', '200px');
+
+  // single slider
+  sliderSingle = createSlider(0, 1, 0.5, 0.1);
+  sliderSingle.position(150, 230);
+  sliderSingle.style('width', '200px');
+}
+
+// setup the serial connection 
+function setupSerial(){
+  // initalize serialport library to connect to p5.serialserver on the host:
+  serial = new p5.SerialPort();
+  // set callback functions for list and data events:
+  serial.on('list', printList);
+  serial.on('data', serialEvent);
+  // open the serial port:
+  serial.open(portName);
+}
+
+// read from serial connection
+function serialEvent() {  
+// read a line of text in from the serial port:
+  var data = serial.readLine();
+  console.log(data);
+
+  // if you've got a valid line, convert it to a number:
+  if (data.length > 0) {
+    actValue = float(data);
+  }
+
+  // send a byte to the microcontroller
+  // serial.write("x");
+}
+
+// serial stuff 
+function printList(portList) {
+  // portList is an array of serial port names:
+  for (var i = 0; i < portList.length; i++) {
+    console.log(i + ' ' + portList[i]);
+  }
+}
 
