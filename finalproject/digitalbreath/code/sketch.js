@@ -17,8 +17,8 @@ const CANVASX = 500;
 const CANVASY = 500;
 
 var serial;
-// var portName = '/dev/ttyUSB0'; 
-var portName = '/dev/ttyACM0'; 
+var portName = '/dev/ttyUSB0'; 
+// var portName = '/dev/ttyACM0'; 
 
 let inhale;
 let exhale;
@@ -312,9 +312,10 @@ function serialEvent() {
 
   // if you've got a valid line, convert it to a number:
   if (data.length > 0) {
+    // do 1 minus the vluae from the arduino
     actValue = float(data);
   }
-
+  
   // send a byte to the microcontroller
   // serial.write("x");
 }

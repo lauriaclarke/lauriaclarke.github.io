@@ -86,7 +86,7 @@ Package.prototype.makePattern = function(){
   const top_r = new paper.Rectangle(this.height - topPad, 2 * this.height + this.depth, this.width + 2 * topPad, this.depth + topPad);
   const top = new paper.Path.Rectangle(top_r);
   top.name = "top";
-  // top.fillColor = "yellow";
+  top.fillColor = "white";
   // left
   const left_r = new paper.Rectangle(0, this.height, this.height, this.depth);
   const left = new paper.Path.Rectangle(left_r);
@@ -129,13 +129,13 @@ Package.prototype.makePattern = function(){
     top_tab_1 = this.makeRectTab(new paper.Rectangle(this.height - topPad, 2 * (this.height + this.depth) + topPad, this.width + 2 * topPad, this.height * 0.45));
     top_tab_1.rotation = 180;
     top_tab_1.name = "top_tab_1";
-    top_tab_1.fillColor = 'teal';
+    top_tab_1.fillColor = '#60B8B9';
     // right_tab_3
     right_tab_3 = this.makeTopTab(new paper.Rectangle(0, 0, this.depth + topPad, this.height * 0.45), true);
     right_tab_3.rotation = 90;
     right_tab_3.position = new paper.Point(this.height + this.width + this.height * 0.45 * 0.5 + topPad, 2 * this.height + 1.5 * this.depth + topPad / 2);
     right_tab_3.name = "right_tab_3";
-    right_tab_3.fillColor = 'teal';
+    right_tab_3.fillColor = '#60B8B9';
     // right mini tab
     right_mini_tab_3 = this.makeMiniTab(new paper.Rectangle(0, 0, this.height * 0.45, this.height * 0.45));
     right_mini_tab_3.rotation = 90;
@@ -146,7 +146,7 @@ Package.prototype.makePattern = function(){
     left_tab_3.rotation = -90;
     left_tab_3.position = new paper.Point(this.height - this.height * 0.45 * 0.5 - topPad, 2 * this.height + 1.5 * this.depth + topPad / 2);
     left_tab_3.name = "left_tab_3";
-    left_tab_3.fillColor = 'teal';
+    left_tab_3.fillColor = '#60B8B9';
     // left mini tab
     left_mini_tab_3 = this.makeMiniTab(new paper.Rectangle(0, 0, this.height * 0.45, this.height * 0.45));
     left_mini_tab_3.rotation = -90;

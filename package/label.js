@@ -89,7 +89,7 @@ Label.prototype.makeLabel = function(){
   }else{
     this.makeBasket();
   }
-  this.placeText();
+  this.placeTopText();
   this.g.addChild(this.text);
   this.g.addChild(this.berries);
   this.g.addChild(this.basket);
@@ -110,7 +110,7 @@ Label.prototype.makeBasket = function(){
   // add the outer basket to the basket group
   var outerBasket = new paper.Path.Rectangle(0, 0, this.width, this.height);
   outerBasket.name = 'outerbasket';
-  outerBasket.fillColor = 'teal';
+  outerBasket.fillColor = '#60B8B9';
   // if this isn't the bottom, add holes
   if(this.name != "bottom"){
     this.holeH = this.height / 2;
@@ -392,6 +392,31 @@ Label.prototype.makeBerries = function(){
   this.berries = berries;
 }
 
+Label.prototype.placeTopText = function(){
+  this.text = new paper.Group({name: 'text'});
+  // get fontscale based on aspect ration of package 
+  var fontScale = 0.15;
+  // console.log(this.name + "  font " + fontScale);
+
+    // switch for each side
+  if(this.name == 'top'){
+    console.log(this);
+    const text = new paper.PointText();
+    text.fontFamily = 'Malayalam MN';
+    text.fillColor = 'black';
+    text.content = "Morrill\nMountain\nFruit Farm\n" + this.berryType + "\nFruit Pate";
+    text.justification = 'center';
+    // text.bounds.bottomCenter = this.bounds.center;
+
+    text.position.x = this.bounds.x + this.bounds.size.width / 2;
+    text.position.y = this.bounds.y + this.bounds.size.height/ 2;
+
+    text.fontSize = this.height / 2 * fontScale;
+  }
+}
+
+
+
 // text
 Label.prototype.placeText = function(){
   this.text = new paper.Group({name: 'text'});
@@ -436,13 +461,13 @@ Label.prototype.placeText = function(){
     // textC.bounds.bottomCenter = this.bounds.bottomCenter;
     // textC.fontSize = fontScale * 0.07;
 
-   //  const textD = new paper.PointText();
-   //  textD.fontFamily = 'Tienne';
-   //  textD.fillColor = fillColor;
-   //  textD.content = this.nPieces + ' pieces';
-   //  textD.justification = 'center';
-   //  textD.bounds.bottomCenter = this.bounds.bottomCenter;
-   //  textD.fontSize = this.height / 2 * fontScale;
+    const textD = new paper.PointText();
+    textD.fontFamily = 'Tienne';
+    textD.fillColor = fillColor;
+    textD.content = this.nPieces + ' pieces';
+    textD.justification = 'center';
+    textD.bounds.bottomCenter = this.bounds.bottomCenter;
+    textD.fontSize = this.height / 2 * fontScale;
     // this.text.addChild(textA);
     // this.text.addChild(textB);
     // this.text.addChild(textC);
@@ -452,10 +477,10 @@ Label.prototype.placeText = function(){
     text.content = frontText;
     text.justification = 'center';
     text.fillColor = 'black';
-    text.fontSize = 10; //  this.bounds.size.height / 2 * fontScale;
-   // if(text.bounds.size.width > this.bounds.size.width){
-   //   text.fontSize =  this.bounds.size.width / 3 * fontScale;
-   // }
+    text.fontSize =  this.bounds.size.width / 2 * fontScale;
+    if(text.bounds.size.width > this.bounds.size.width){
+      text.fontSize =  this.bounds.size.width / 3 * fontScale;
+    }
     text.position.x = this.width / 2;
     text.position.y = this.height / 6;
     this.text.addChild(text);
@@ -465,10 +490,10 @@ Label.prototype.placeText = function(){
     text.content = leftTextB;
     text.justification = 'center';
     text.fillColor = 'black';
-    text.fontSize = 10; //  this.bounds.size.height / 2 * fontScale;
-   //  if(text.bounds.size.height > this.bounds.size.width / 2){
-   //    text.fontSize =  this.bounds.size.width / 2 * fontScale;
-   //  }
+    text.fontSize =  this.bounds.size.height / 2 * fontScale;
+    if(text.bounds.size.height > this.bounds.size.width / 2){
+      text.fontSize =  this.bounds.size.width / 2 * fontScale;
+    }
     text.position.x = this.bounds.size.height / 2;
     text.position.y = this.bounds.size.width / 6;
     this.text.addChild(text);
@@ -478,10 +503,10 @@ Label.prototype.placeText = function(){
     text.content = this.berryType + '\n Fruit Pate';
     text.justification = 'center';
     text.fillColor = 'black';
-    text.fontSize =  10; // this.bounds.size.height / 2 * fontScale;
-//     if(text.bounds.size.height > this.bounds.size.width / 2){
-//       text.fontSize =  this.bounds.size.width / 2 * fontScale;
-//     }
+    text.fontSize =  this.bounds.size.height / 2 * fontScale;
+    if(text.bounds.size.height > this.bounds.size.width / 2){
+      text.fontSize =  this.bounds.size.width / 2 * fontScale;
+    }
     text.position.x = this.bounds.size.height / 2;
     text.position.y = this.bounds.size.width / 6;
     this.text.addChild(text);

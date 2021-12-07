@@ -7,17 +7,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tienne:wght@900&display=swap" > 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/MalayalamMN.ttc">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
       body, input, button {
-        font-family: "Tienne";
+        font-family: "Malayalam MN";
         font-weight: 100;
       }
       .spacer {
         padding-top: 80px;
-        padding-bottom: 40px
+        padding-bottom: 80px
       }
     </style>
 
@@ -105,19 +106,22 @@
 
   </head>
 
-  <body>
+  <body style="background-color: #60B8B9">
 
-    <div class="jumbotron text-center">
-      <h1>Morrill Mountain Fruit Farm</h1>
+    <div style="background-color: #60B8B9!important" class="jumbotron text-center">
+      <img src="assets/logo.png" height="500"> <br> 
     </div>
 
-    <div class="container">
+    <div style="background-color: #ffffff!important; border-radius: 15px; padding: 50px" class="container">
 
     <div class="row">
-      <div class="col-sm-4">
-      <h4>pick your flavor and size</h4>
-      </div>
-      <div class="col-sm-4">
+      <div class="col-sm" align="center"  style="padding: 20px">
+      <h2>Pick your flavor and size. Download when ready!</h2>
+     </div>
+   </div>
+
+    <div class="row" align="center">
+      <div class="col-sm" align="center">
        <!-- <label for="berrytype">flavor</label><br> -->
        <select name="berrytype" id="berrytype">
          <option value="Black Currant">Black Currant</option>
@@ -128,38 +132,38 @@
          <option value="Mixed Berry">Mixed Berry</option>
          <option value="Mixed Currant">Mixed Currant</option>
        </select>
-      </div>
-      <div class="col-sm-4">
+      <!-- </div> -->
+      <!-- <div class="col-sm-4" align="center"> -->
       <!-- buttons to refresh and download -->
-      <button id="update" onClick="refreshPage()">resize window</button>
+      <!-- <button id="update" onClick="refreshPage()">resize window</button> -->
       <button id="download">download svg</button>
       </div>
     </div>
     
     <h1 class="space"></h1>
 
-    <div class="row">
-      <div class="col-sm-4">
+    <div style="padding: 20px" class="row">
+      <div style="padding: 20px" class="col-sm-4">
         <img src="assets/2_2.png" height="65"> <br>
         <input type="radio" id="2x2" name="size" value="2x2"> <label class="radio"> just for you </label>
       </div>
-      <div class="col-sm-4">
+      <div style="padding: 20px" class="col-sm-4">
            <img src="assets/3_3.png" height="100"> <br>
            <input type="radio" id="3x3" name="size" value="3x3"> <label class="radio"> to share with a friend</label>
       </div>         
-      <div class="col-sm-4">
+      <div style="padding: 20px" class="col-sm-4">
            <img src="assets/3_6.png" height="100"> <br>
            <input type="radio" id="3x6" name="size" value=3x6"> <label class="radio" for="3x6"> dinner party </label>
       </div>
-      <div class="col-sm-4">
+      <div style="padding: 20px" class="col-sm-4">
            <img src="assets/3_6_2.png" height="100"> <br>
            <input type="radio" id="3x6x2" name="size" value="3x6x2"> <label class="radio" for="3x6x2"> birthday party </label>
       </div>
-      <div class="col-sm-4">
+      <div style="padding: 20px" class="col-sm-4">
            <img src="assets/case.png" height="100"><br>
            <input type="radio" id="case" name="size" value="case"> <label class="radio" for="case"> display case (12 boxes)</label>
       </div>
-      <div class="col-sm-4">
+      <div style="padding: 20px" class="col-sm-4">
            <img src="assets/double_case.png" height="100"><br>
            <input type="radio" id="doublecase" name="size" value="doublecase"><label class="radio" for="doublecase"> double display case (24 boxes)</label> 
       </div>
@@ -168,27 +172,47 @@
 
     <h1 class="space"></h1>
 
-    <div class="row">
-      <div class="col-sm-12">
+    <div style="padding: 20px" class="row">
+      <div  class="col-sm-12" align="center">
       <!-- if this box is checked allow the custom sizing --> 
       <input type="radio" id="custom" name="size" value="custom"> 
       <label for="custom">choose custom size</label><br>
-      <label for="layers">layers (1 - 4)</label>
-      <input type="text" id="layers" value="1"> <br>
-      <label for="rows">rows (1 - 10)</label> 
-      <input type="text" id="rows" value="3"> <br>
-      <label for="columns">columns (1 - 10)</label> 
-      <input type="text" id="columns" value="3">
+      <label for="layers"  style="padding-right: 5px">layers (1 - 4)  </label>
+      <input type="text" id="layers" value="1" size="1"> <br>
+      <label for="rows"  style="padding-right: 5px">rows (1 - 10)  </label> 
+      <input type="text" id="rows" value="3" size="1"> <br>
+      <label for="columns" style="padding-right: 5px">columns (1 - 10) </label> 
+      <input type="text" id="columns" value="3" size="1">
       </div>
     </div>
+    </div>
 
+
+<!--
+        <iframe
+          scrolling="no"      
+          width="600px"
+          height="600px"
+          src="generatoriframe.html">
+        </iframe> 
+
+-->
+
+
+    <div style="background-color: #60B8B9!important; border-radius: 15px; padding: 50px" class="container">
+
+    <div class="row">
+      <div class="col-sm" align="center"  style="padding: 20px">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js"></script>
     <script src="sketch.js"></script>
     <script src="package.js"></script>
     <script src="label.js"></script>
     <script src="text.js"></script>
-   
+     </div>
+   </div>
+
+
 
   </body>
 
