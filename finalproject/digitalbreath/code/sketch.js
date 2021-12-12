@@ -18,17 +18,17 @@ const CANVASY = 500;
 
 var serial;
 var portName = '/dev/ttyUSB0'; 
-// var portName = '/dev/ttyACM0'; 
+//var portName = '/dev/ttyACM0'; 
 
 let inhale;
 let exhale;
 
-var inhalePause; 
-var exhalePause; 
-var inhaleRate;  
-var exhaleRate;  
-var inhaleVolume;
-var exhaleVolume;
+var iPause; 
+var ePause; 
+var iRate;  
+var eRate;  
+var iVolume;
+var eVolume;
 
 var state = 0;
 var start = false;
@@ -43,16 +43,7 @@ var actValue;
 
 function preload(){
   inhale = loadSound("inhale.mp3");
-  exhale = loadSound("exhale.mp3");
-  // inhale = loadSound("inhale2.mp3");
-  // exhale = loadSound("exhale2.mp3");
- 
- // inhale_start = loadSound("inhale_start.mp3");    
- // inhale_mid   = loadSound("inhale_mid.mp3");      
- // inhale_stop  = loadSound("inhale_stop.mp3");     
- // exhale_start = loadSound("exhale_start.mp3");     
- // exhale_mid   = loadSound("exhale_mid.mp3");     
- // exhale_stop  = loadSound("exhale_stop.mp3");                          
+  exhale = loadSound("exhale.mp3");                        
 }                          
 
 function setup() {
@@ -72,73 +63,91 @@ function draw() {
   background(255, 60, 80);
 
   if(start){
+    // console.log("manual " + manual + "  sensor " + sensor);
     if(manual && !sensor){
-      breathe(sliderInhalePause.value(), sliderExhalePause.value(), 
-              sliderInhaleRate.value(), sliderExhaleRate.value(),
-              sliderInhaleVolume.value(), sliderExhaleVolume.value());
+      getSliders();
     }else if(!manual && !sensor){
       randomizeBreath(sliderSingle.value());
-      breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume, exhaleVolume);
     }else if(manual && sensor){
       console.log(actValue);
       randomizeBreath(actValue);
-      breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume, exhaleVolume);
     }else{
       fill('black');
       text("PLEASE CHECK YOUR CONTROL SETTINGS!", width / 2, height / 2);
       console.log("manual " + manual + "  sensor " + sensor);
     }
+    breathe(iPause, ePause, iRate, eRate, iVolume, eVolume);
   }
 
   drawText();
 }
 
 
+function getSliders(){
+  iPause = sliderInhalePause.value();
+  ePause = sliderExhalePause.value();
+
+  iRate = sliderInhaleRate.value();
+  eRate = sliderExhaleRate.value();
+
+  iVolume = sliderInhaleVolume.value();
+  eVolume = sliderExhaleVolume.value();
+}
+
 // add some randomization to the cadence, volume and playback rate based on the slider
 // takes a value between 0 and 1 
 function randomizeBreath(inputValue){
   // inhale cadence
   if(random() < 0.015 - inputValue / 100){
-    inhalePause = 0;
+    iPause = 0.1;
   }else{
-    inhalePause = inputValue * 1000;
+    iPause = inputValue * 1000;
   }
   // exhale cadence
   if(random() < 0.015 - inputValue / 100){
-    exhalePause = 0;
+    ePause = 0.1;
   }else{
-    exhalePause = inputValue * 1000;
+    ePause = inputValue * 1000;
   }
 
   // inhale volume
   if(random() < 0.015 - inputValue / 100){
-    inhaleVolume = random(0.3, 1);
+    iVolume = random(0.3, 1);
   }else{
-    inhaleVolume = 1 - inputValue + 0.3;
+    iVolume = 1 - inputValue + 0.3;
   }
   // exhale volume
   if(random() < 0.015 - inputValue / 100){
-    exhaleVolume = random(0.2, 1);
+    eVolume = random(0.2, 1);
   }else{
-    exhaleVolume = 1 - inputValue + 0.2;
+    eVolume = 1 - inputValue + 0.2;
   }
 
   // inhale rate
   if(random() < 0.015 - inputValue / 100){
-    inhaleRate = random(0.8, 1.2);
+    iRate = random(0.8, 1.2);
   }else{
-    inhaleRate = 1;
+    iRate = 1;
   }
   // exhale rate
   if(random() < 0.015 - inputValue / 100){
-    exhaleRate = random(0.8, 1.2);
+    eRate = random(0.8, 1.2);
   }else{
-    exhaleRate = 1;
+    eRate = 1;
   }
 }
 
 // breathing based on manual sliders
 function breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume, exhaleVolume){
+  // print the statistics for this breath cycle
+  text("inhalePause  " +  inhalePause,  250, 350); 
+  text("exhalePause  " +  exhalePause,  250, 375); 
+  text("inhaleRate   " +  inhaleRate,   250, 400);  
+  text("exhaleRate   " +  exhaleRate,   250, 425);  
+  text("inhaleVolume " +  inhaleVolume, 250, 450);
+  text("exhaleVolume " +  exhaleVolume, 250, 475);
+  text("manual " +  manual, 250, 500);
+  text("sensor " +  sensor, 250, 525);
 
   // set volumes
   inhale.setVolume(inhaleVolume);
@@ -157,7 +166,6 @@ function breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume,
     
     // INHALEPAUSE: wait for exhale
     case 1:
-      loopCount = 0;
       // use this logic instead of a while loop for happy computer
       if(timeA == 0){
         timeA = millis();
@@ -197,8 +205,8 @@ function breathe(inhalePause, exhalePause, inhaleRate, exhaleRate, inhaleVolume,
 
 // increment the state variable
 function switchState(){
-  // console.log("clip ended");
   state = state + 1;
+  // console.log("clip ended  " + state);
 }
 
 // start and stop the sketch
@@ -241,6 +249,13 @@ function drawText(){
   text("pause sliders", 50, 80);
   text("rate sliders", 50, 140);
   text("single sliders", 50, 250);
+
+  text("inhalePause  " +  iPause,  50, 350); 
+  text("exhalePause  " +  ePause,  50, 375); 
+  text("inhaleRate   " +  iRate,   50, 400);  
+  text("exhaleRate   " +  eRate,   50, 425);  
+  text("inhaleVolume " +  iVolume, 50, 450);
+  text("exhaleVolume " +  eVolume, 50, 475);
 }
 
 // create buttons a sliders for control
@@ -270,11 +285,11 @@ function createControls(){
   sliderExhaleVolume.style('width', '200px');
 
   // inhale pause slider
-  sliderInhalePause = createSlider(0, 5000, 2500, 100);
+  sliderInhalePause = createSlider(0.1, 5000, 2500, 100);
   sliderInhalePause.position(150, 60);
   sliderInhalePause.style('width', '200px');
   // exhale pause slider
-  sliderExhalePause = createSlider(0, 5000, 2500, 100);
+  sliderExhalePause = createSlider(0.1, 5000, 2500, 100);
   sliderExhalePause.position(150, 80);
   sliderExhalePause.style('width', '200px');
 

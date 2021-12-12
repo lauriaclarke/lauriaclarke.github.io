@@ -5,6 +5,8 @@
 #define IRPinLong A3
 #define modelLong 100500
 #define SHORT true
+#define LONG_MIN 1.7
+#define LONG_MAX 3.2
 
 int distanceShort;
 int distanceLong;
@@ -29,14 +31,26 @@ void loop() {
   } else {
     getDistances();
     // map the short distacne to a good range
-    if(SHORT){
-      Serial.println(mapShortDistance());
+    if(pickSensor()){
+      Serial.println(0.01);
+      // Serial.println(mapShortDistance());
     }else{
       Serial.println(mapLongDistance());
     }
   }
 }
 
+
+bool pickSensor(){
+  if(voltageShort > 0.5 && distanceShort < 80){
+    // Serial.println("short sensor");
+    return true;
+  }else{
+    // Serial.println("long sensor");
+    return false;  
+  }
+
+}
 
 float mapFloat(float x, float in_min, float in_max, float out_min, float out_max)
 {
@@ -58,10 +72,12 @@ float mapShortDistance(){
 
 float mapLongDistance(){
   float mappedValue = 0;
-  if(distanceLong > 0 && voltageLong <= 3.5){
-    mappedValue = abs(1 - mapFloat(voltageLong, 0, 3.2, 0, 1.0));
+  if(distanceLong > 0 && voltageLong <= LONG_MAX){
+    mappedValue = abs(1 - mapFloat(voltageLong, LONG_MIN, LONG_MAX, 0, 1.0));
     //Serial.println(mappedValue);
     return mappedValue;
+  }else if(voltageLong > LONG_MAX){
+    return 0.0;
   }else{
     return 1.0;
   }
@@ -86,14 +102,18 @@ void getDistances() {
   voltageShort = analogRead(IRPinShort) * (5.0 / 1023.0);
   voltageLong = analogRead(IRPinLong) * (5.0 / 1023.0);
 
-//  Serial.print(distanceShort);
-//  Serial.print(" cm, ");
-//  Serial.print(distanceLong);
-//  Serial.print(" cm    ");
-//  Serial.print(voltageShort);
-//  Serial.print(" V, ");
-//  Serial.print(voltageLong);
-//  Serial.println(" V");
+/*
+  Serial.print("(");
+  Serial.print(distanceShort);
+  Serial.print(" cm, ");
+  Serial.print(voltageShort);
+  Serial.print(" V),  (");
+  Serial.print(distanceLong);
+  Serial.print(" cm, ");
+  Serial.print(voltageLong);
+  Serial.println(" V)");
+  */
+  
 
   delay(1000);
 }
