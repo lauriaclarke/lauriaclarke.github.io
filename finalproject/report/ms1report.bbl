@@ -1,13 +1,14 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{denki}
 Maywa Denki.
 \newblock Wahha go go, Aug 2009.
 
-\bibitem{haraway}
-Donna Haraway.
-\newblock Anthropocene, capitalocene, plantationocene, chthulucene: Making kin.
-\newblock {\em Environmental Humanities}, 6:159--165, 05 2015.
+\bibitem{furlow}
+Paul~W. Furlow and Douglas~J. Mathisen.
+\newblock Surgical anatomy of the trachea.
+\newblock {\em Annals of cardiothoracic surgery}, 7(2):255--260, Mar 2018.
+\newblock acs-07-02-255[PII].
 
 \bibitem{lozanohemmer}
 Rafael Lozano-Hemmer.
@@ -19,6 +20,34 @@ J.~N. Maina.
   perspectives.
 \newblock {\em Journal of anatomy}, 201(4):281--304, Oct 2002.
 \newblock PMC1570919[pmcid].
+
+\bibitem{narine}
+James~S. Nairne, Joshua~E. VanArsdall, and Mindi Cogdill.
+\newblock Remembering the living: Episodic memory is tuned to animacy.
+\newblock {\em Current Directions in Psychological Science}, 26(1):22--27,
+  2017.
+
+\bibitem{prosek}
+Jennifer~Stettler Parsons, Jennifer Angus, Mark Dion, Jane Lubchenco, Courtney
+  Mattison, and James Prosek.
+\newblock {\em Fragile earth: The Naturalist Impulse in contemporary art}.
+\newblock Florence Griswold Museum, 2019.
+
+\bibitem{purdy}
+Jedediah Purdy.
+\newblock {\em After nature: A politics for the anthropocene}.
+\newblock Harvard University Press, 2015.
+
+\bibitem{read}
+Robert~L. Read, Lauria Clarke, and Geoff Mulligan.
+\newblock Ventmon: An open source inline ventilator tester and monitor.
+\newblock {\em HardwareX}, 9:e00195, 2021.
+
+\bibitem{sarkar}
+Malay Sarkar, Irappa Madabhavi, Narasimhalu Niranjan, and Megha Dogra.
+\newblock Auscultation of the respiratory system.
+\newblock {\em Annals of thoracic medicine}, 10(3):158--168, 2015.
+\newblock ATM-10-158[PII].
 
 \bibitem{ventilatorhistory}
 Arthur~S. Slutsky.
