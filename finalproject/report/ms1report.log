@@ -1,0 +1,319 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.11.27)  16 DEC 2021 16:40
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**ms1report.tex
+(./ms1report.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-01-09> xparse <2020-03-03>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count177
+\c@section=\count178
+\c@subsection=\count179
+\c@subsubsection=\count180
+\c@paragraph=\count181
+\c@subparagraph=\count182
+\c@figure=\count183
+\c@table=\count184
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (./ms1report.sty
+Conference Style for ISEA 2019 for LaTeX 2e -- version of Sep 17 2018
+\titlebox=\skip49
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip50
+\bibsep=\skip51
+LaTeX Info: Redefining \cite on input line 694.
+LaTeX Info: Redefining \citeauthor on input line 712.
+LaTeX Info: Redefining \citeyear on input line 735.
+\c@NAT@ctr=\count185
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
+2.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count186
+\l__pdf_internal_box=\box47
+)
+(./ms1report.aux
+
+LaTeX Warning: Label `fig:denki' multiply defined.
+
+)
+\openout1 = `ms1report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count187
+\scratchdimen=\dimen141
+\scratchbox=\box48
+\nofMPsegments=\count188
+\nofMParguments=\count189
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count190
+\MPscratchDim=\dimen142
+\MPnumerator=\count191
+\makeMPintoPDFobject=\count192
+\everyMPtoPDFconversion=\toks17
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 23.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 23.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+]
+<images/whagogo.png, id=8, 1453.43pt x 1023.825pt>
+File: images/whagogo.png Graphic file (type png)
+<use images/whagogo.png>
+Package pdftex.def Info: images/whagogo.png  used on input line 78.
+(pdftex.def)             Requested size: 252.94499pt x 178.17223pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 78--79
+[][] 
+ []
+
+<images/vcb_madrid_2014.jpg, id=10, 4587.1375pt x 3293.30376pt>
+File: images/vcb_madrid_2014.jpg Graphic file (type jpg)
+<use images/vcb_madrid_2014.jpg>
+Package pdftex.def Info: images/vcb_madrid_2014.jpg  used on input line 84.
+(pdftex.def)             Requested size: 252.94499pt x 181.5594pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 84--85
+[][] 
+ []
+
+<images/respiratorysystem.png, id=11, 642.4pt x 684.5575pt>
+File: images/respiratorysystem.png Graphic file (type png)
+<use images/respiratorysystem.png>
+Package pdftex.def Info: images/respiratorysystem.png  used on input line 105.
+(pdftex.def)             Requested size: 252.94499pt x 269.54593pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 105--106
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2 <./images/whagogo.png> <./images/vcb_madrid_2014.jpg>]
+<images/buckettest.png, id=17, 706.64pt x 542.025pt>
+File: images/buckettest.png Graphic file (type png)
+<use images/buckettest.png>
+Package pdftex.def Info: images/buckettest.png  used on input line 132.
+(pdftex.def)             Requested size: 252.94499pt x 194.02058pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 132--133
+[][] 
+ []
+
+[3 <./images/respiratorysystem.png> <./images/buckettest.png>]
+<images/playablebreath1.png, id=22, 1136.245pt x 823.075pt>
+File: images/playablebreath1.png Graphic file (type png)
+<use images/playablebreath1.png>
+Package pdftex.def Info: images/playablebreath1.png  used on input line 154.
+(pdftex.def)             Requested size: 252.94499pt x 183.22466pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 154--155
+[][] 
+ []
+
+<images/trachea.png, id=23, 370.38374pt x 517.935pt>
+File: images/trachea.png Graphic file (type png)
+<use images/trachea.png>
+Package pdftex.def Info: images/trachea.png  used on input line 164.
+(pdftex.def)             Requested size: 111.11597pt x 155.38168pt.
+<images/46.JPG, id=24, 1418.29875pt x 2112.89375pt>
+File: images/46.JPG Graphic file (type jpg)
+<use images/46.JPG>
+Package pdftex.def Info: images/46.JPG  used on input line 172.
+(pdftex.def)             Requested size: 111.29642pt x 165.7787pt.
+<images/52.JPG, id=25, 1001.7425pt x 1478.52374pt>
+File: images/52.JPG Graphic file (type jpg)
+<use images/52.JPG>
+Package pdftex.def Info: images/52.JPG  used on input line 173.
+(pdftex.def)             Requested size: 111.29642pt x 164.26247pt.
+[4 <./images/playablebreath1.png> <./images/trachea.png> <./images/46.JPG> <./i
+mages/52.JPG>]
+<images/finaltrial.JPG, id=33, 2380.895pt x 2304.61pt>
+File: images/finaltrial.JPG Graphic file (type jpg)
+<use images/finaltrial.JPG>
+Package pdftex.def Info: images/finaltrial.JPG  used on input line 193.
+(pdftex.def)             Requested size: 252.94499pt x 244.822pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 193--194
+[][] 
+ []
+
+<images/closeupdiaphragm.JPG, id=34, 1110.0672pt x 740.0448pt>
+File: images/closeupdiaphragm.JPG Graphic file (type jpg)
+<use images/closeupdiaphragm.JPG>
+Package pdftex.def Info: images/closeupdiaphragm.JPG  used on input line 201.
+(pdftex.def)             Requested size: 252.94499pt x 168.62582pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 201--202
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/closeupbronchialtree.JPG, id=35, 2318.6625pt x 3385.64874pt>
+File: images/closeupbronchialtree.JPG Graphic file (type jpg)
+<use images/closeupbronchialtree.JPG>
+Package pdftex.def Info: images/closeupbronchialtree.JPG  used on input line 20
+7.
+(pdftex.def)             Requested size: 252.94499pt x 369.32288pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 207--208
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./images/finaltrial.JPG> <./images/closeupdiaphragm.JPG>] [6 <./images/clos
+eupbronchialtree.JPG>] (./ms1report.bbl
+Underfull \hbox (badness 2635) in paragraph at lines 44--49
+[]\OT1/ptm/m/n/10 J. N. Maina.  Struc-ture, func-tion and evo-lu-tion
+ []
+
+
+Underfull \hbox (badness 2744) in paragraph at lines 44--49
+\OT1/ptm/m/n/10 of the gas ex-chang-ers: com-par-a-tive per-spec-tives.
+ []
+
+
+Underfull \hbox (badness 4940) in paragraph at lines 44--49
+\OT1/ptm/m/it/10 Jour-nal of anatomy\OT1/ptm/m/n/10 , 201(4):281--304, Oct 2002
+.
+ []
+
+) [7] (./ms1report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2239 strings out of 479304
+ 34646 string characters out of 5869778
+ 323531 words of memory out of 5000000
+ 19400 multiletter control sequences out of 15000+600000
+ 417935 words of font info for 46 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 72i,10n,78p,1086b,246s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on ms1report.pdf (7 pages, 13308597 bytes).
+PDF statistics:
+ 69 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+
