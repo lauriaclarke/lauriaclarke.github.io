@@ -102,7 +102,7 @@ void getDistances() {
   voltageShort = analogRead(IRPinShort) * (5.0 / 1023.0);
   voltageLong = analogRead(IRPinLong) * (5.0 / 1023.0);
 
-/*
+
   Serial.print("(");
   Serial.print(distanceShort);
   Serial.print(" cm, ");
@@ -112,7 +112,7 @@ void getDistances() {
   Serial.print(" cm, ");
   Serial.print(voltageLong);
   Serial.println(" V)");
-  */
+  
   
 
   delay(1000);
