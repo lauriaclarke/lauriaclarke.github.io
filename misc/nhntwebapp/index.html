@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <title>NHNT Test Application</title>
+    </head>
+    <body>
+        <div id="main-container">
+            Press the button to start listening to the plants!
+
+            <br><br>
+
+            <div>captured conversation</div> <textarea name="textarea" id="rxData" style="width:300px;height:100px;" disabled></textarea><br>
+
+            <button id="captureStart">start listening</button>
+            <button id="captureStop" hidden>stop listening</button>
+
+            <br><br>
+
+            <div>responses</div>
+            <ul id="list">
+
+            </ul>
+
+            <!-- <div>send data</div> <textarea name="textarea" id="txData" style="width:300px;height:100px;">Hello javascript</textarea><br>
+
+            <button onclick="onSend();">send</button>
+
+            <br><br> -->
+
+            <!-- <div class="cell-version">
+                <span>
+                    |
+                    Build time: <span class="nav-link">Sat Sep 10 17:57:37 2022</span> |
+                    Commit hash: <a class="nav-link" href="https://github.com/ggerganov/ggwave/commit/d0296025">d0296025</a> |
+                    Commit subject: <span class="nav-link">ref #77 : add MT protocols to ggwave.js + new API for setting freqStart</span> |
+                    <a class="nav-link" href="https://github.com/ggerganov/ggwave/tree/master/examples/ggwave-js">Source Code</a> |
+                </span>
+            </div> -->
+        </div>
+
+        <script type="text/javascript" src="https://ggwave-js.ggerganov.com/ggwave.js"></script>
+        <script type='text/javascript' src="listener.js"> </script>
+         
+    </body>
+</html>
